@@ -1,5 +1,6 @@
 import { useRef, useState } from "react";
 import { uploadImage } from "./api";
+import { mediaUrl } from "../api";
 
 export const inputClass =
   "w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm text-slate-800 outline-none focus:border-ocean-500 focus:ring-2 focus:ring-ocean-200";
@@ -114,7 +115,7 @@ export function ImagePicker({ value, onChange, label, aspect = "h-32" }) {
         <div className="flex flex-col items-center gap-2">
           {value ? (
             <img
-              src={value}
+              src={mediaUrl(value)}
               alt="Pratinjau"
               className={`${aspect} w-40 rounded-lg border border-slate-200 object-cover`}
             />

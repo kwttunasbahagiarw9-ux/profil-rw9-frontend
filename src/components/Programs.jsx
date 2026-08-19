@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Icon from "./Icon";
+import { mediaUrl } from "../api";
 
 export default function Programs({ programs }) {
   const [page, setPage] = useState(0);
@@ -36,7 +37,7 @@ export default function Programs({ programs }) {
             >
               <div className="relative h-52 overflow-hidden">
                 <img
-                  src={program.image}
+                  src={mediaUrl(program.image)}
                   alt={program.title}
                   className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
                   loading="lazy"

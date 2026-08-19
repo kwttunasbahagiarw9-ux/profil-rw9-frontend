@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Icon from "./Icon";
+import { mediaUrl } from "../api";
 
 export default function Gallery({ gallery }) {
   const [lightbox, setLightbox] = useState(null);
@@ -39,7 +40,7 @@ export default function Gallery({ gallery }) {
               className="group relative h-64 overflow-hidden rounded-2xl shadow-card focus:outline-none focus:ring-4 focus:ring-ocean-300"
             >
               <img
-                src={item.image}
+                src={mediaUrl(item.image)}
                 alt={item.title}
                 className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
                 loading="lazy"
@@ -105,7 +106,7 @@ export default function Gallery({ gallery }) {
         >
           <div className="relative w-full max-w-3xl" onClick={(e) => e.stopPropagation()}>
             <img
-              src={lightbox.image}
+              src={mediaUrl(lightbox.image)}
               alt={lightbox.title}
               className="max-h-[80vh] w-full rounded-2xl object-cover"
             />

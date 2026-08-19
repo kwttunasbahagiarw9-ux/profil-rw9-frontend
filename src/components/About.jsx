@@ -1,4 +1,5 @@
 import Icon from "./Icon";
+import { mediaUrl } from "../api";
 
 export default function About({ site }) {
   return (
@@ -14,7 +15,7 @@ export default function About({ site }) {
             ]).slice(0, 4).map((src, i) => (
               <img
                 key={i}
-                src={src}
+                src={mediaUrl(src)}
                 alt={`Kegiatan warga RW 09 Tanjung Mas ${i + 1}`}
                 className={`h-56 w-full rounded-2xl object-cover shadow-card sm:h-64 ${i % 2 === 0 ? "mt-8" : ""}`}
                 loading="lazy"

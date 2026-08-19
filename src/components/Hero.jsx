@@ -1,4 +1,5 @@
 import Icon from "./Icon";
+import { mediaUrl } from "../api";
 
 export default function Hero({ site }) {
   return (
@@ -54,7 +55,7 @@ export default function Hero({ site }) {
           <div className="animate-float">
             <div className="relative overflow-hidden rounded-3xl border-4 border-white/20 shadow-2xl">
               <img
-                src={site.hero?.image || "https://images.unsplash.com/photo-1498028658436-4b07a4d1fba4?auto=format&fit=crop&w=900&q=80"}
+                src={mediaUrl(site.hero?.image) || "https://images.unsplash.com/photo-1498028658436-4b07a4d1fba4?auto=format&fit=crop&w=900&q=80"}
                 alt={site.hero?.caption || "Suasana pesisir Tanjung Mas"}
                 className="h-72 w-full object-cover sm:h-96"
                 loading="eager"
