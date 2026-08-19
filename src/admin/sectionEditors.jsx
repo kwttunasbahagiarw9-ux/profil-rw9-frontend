@@ -260,6 +260,33 @@ export function ContactFields({ value, onChange }) {
   );
 }
 
+export function FooterFields({ value, onChange }) {
+  const base = value.footer || value.contact || {};
+  const set = (k, v) =>
+    onChange({ ...value, footer: { ...(value.footer || value.contact || {}), [k]: v } });
+  return (
+    <div className="space-y-4">
+      <Field label="Alamat">
+        <TextArea value={base.address} onChange={(v) => set("address", v)} rows={2} />
+      </Field>
+      <div className="grid gap-4 sm:grid-cols-2">
+        <Field label="Telepon">
+          <TextInput value={base.phone} onChange={(v) => set("phone", v)} />
+        </Field>
+        <Field label="Nomor WhatsApp (format 628xx)">
+          <TextInput value={base.waNumber} onChange={(v) => set("waNumber", v)} />
+        </Field>
+      </div>
+      <Field label="Label WhatsApp">
+        <TextInput value={base.whatsappLabel} onChange={(v) => set("whatsappLabel", v)} />
+      </Field>
+      <Field label="Email">
+        <TextInput value={base.email} onChange={(v) => set("email", v)} />
+      </Field>
+    </div>
+  );
+}
+
 export function VisiMisiFields({ value, onChange }) {
   return (
     <div className="space-y-4">

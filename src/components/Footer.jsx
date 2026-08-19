@@ -2,12 +2,12 @@ import Icon from "./Icon";
 
 export default function Footer({ site }) {
   const year = new Date().getFullYear();
-  const contact = {
-    address:
-      "RW 09, Kelurahan Tanjung Mas, Kecamatan Semarang Utara, Kota Semarang, Jawa Tengah 50144",
-    phone: "(024) 3560341",
-    email: "kelurahantanjungmas@gmail.com",
-    ...(site.contact || {})
+  const contact = site.footer || site.contact || {};
+  const footer = {
+    address: contact.address || "RW 09, Kelurahan Tanjung Mas, Kecamatan Semarang Utara, Kota Semarang, Jawa Tengah 50144",
+    phone: contact.phone || "(024) 3560341",
+    whatsappLabel: contact.whatsappLabel || "WA: 0852-4117-8085",
+    email: contact.email || "kelurahantanjungmas@gmail.com"
   };
 
   return (
@@ -79,15 +79,15 @@ export default function Footer({ site }) {
             <ul className="mt-4 space-y-3 text-sm">
               <li className="flex items-start gap-3">
                 <Icon name="pin" className="mt-0.5 h-5 w-5 shrink-0 text-cyan-400" />
-                <span>{contact.address}</span>
+                <span>{footer.address}</span>
               </li>
               <li className="flex items-center gap-3">
-                <Icon name="phone" className="h-5 w-5 shrink-0 text-cyan-400" />
-                <span>{contact.phone}</span>
+                <Icon name="whatsapp" className="h-5 w-5 shrink-0 text-cyan-400" />
+                <span>{footer.whatsappLabel}</span>
               </li>
               <li className="flex items-center gap-3">
                 <Icon name="mail" className="h-5 w-5 shrink-0 text-cyan-400" />
-                <span className="break-all">{contact.email}</span>
+                <span className="break-all">{footer.email}</span>
               </li>
             </ul>
           </div>

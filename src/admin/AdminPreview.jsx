@@ -21,6 +21,7 @@ import {
   HeroFields,
   AboutFields,
   ContactFields,
+  FooterFields,
   VisiMisiFields,
   SCHEMAS,
   NEW_ITEMS
@@ -94,8 +95,9 @@ export default function AdminPreview() {
       case "site-about":
         return <AboutFields value={draft} onChange={setDraft} />;
       case "site-contact":
-      case "site-footer":
         return <ContactFields value={draft} onChange={setDraft} />;
+      case "site-footer":
+        return <FooterFields value={draft} onChange={setDraft} />;
       case "visimisi":
         return <VisiMisiFields value={draft} onChange={setDraft} />;
       default:

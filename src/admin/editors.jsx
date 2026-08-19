@@ -246,7 +246,7 @@ export function ArrayCard({ label, items, schema, newItem, onChange }) {
     onChange(next);
   }
 
-  const keyer = (item, i) => item.id || item.name || i;
+  const keyer = (item, i) => String(i);
 
   return (
     <div className="space-y-3">

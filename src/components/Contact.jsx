@@ -46,9 +46,9 @@ export default function Contact({ site }) {
       lines: [contact.address]
     },
     {
-      icon: "phone",
-      title: "Telepon",
-      lines: [contact.phone, contact.whatsappLabel]
+      icon: "whatsapp",
+      title: "WhatsApp",
+      lines: [contact.whatsappLabel, contact.phone]
     },
     {
       icon: "mail",
