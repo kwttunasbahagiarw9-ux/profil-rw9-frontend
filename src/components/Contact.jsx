@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Icon from "./Icon";
+import { apiUrl } from "../api";
 
 export default function Contact({ site }) {
   const [form, setForm] = useState({ name: "", message: "" });
@@ -13,7 +14,7 @@ export default function Contact({ site }) {
     }
     setStatus(null);
     try {
-      const res = await fetch("/api/messages", {
+      const res = await fetch(apiUrl("/api/messages"), {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ name: form.name.trim(), message: form.message.trim() })

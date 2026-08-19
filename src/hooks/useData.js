@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { apiUrl } from "../api";
 
 const LOCAL_FALLBACK = {
   site: {
@@ -205,7 +206,7 @@ export function useData(endpoint, fallbackKey) {
 
   useEffect(() => {
     let active = true;
-    fetch(`/api/${endpoint}`)
+    fetch(apiUrl(`/api/${endpoint}`))
       .then((res) => {
         if (!res.ok) throw new Error("Gagal memuat data");
         return res.json();

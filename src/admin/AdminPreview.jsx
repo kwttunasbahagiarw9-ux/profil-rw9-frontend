@@ -13,6 +13,7 @@ import Footer from "../components/Footer";
 import ScrollTop from "../components/ScrollTop";
 import Icon from "../components/Icon";
 import { fetchContent, saveContent, clearToken, authHeaders } from "./api";
+import { apiUrl } from "../api";
 import { buttonClass, ArrayCard } from "./editors";
 import Toast from "./Toast";
 import {
@@ -50,7 +51,7 @@ export default function AdminPreview() {
         setLoading(false);
       });
 
-    fetch("/api/admin/me", { headers: authHeaders() })
+    fetch(apiUrl("/api/admin/me"), { headers: authHeaders() })
       .then((r) => (r.ok ? r.json() : null))
       .then((j) => j && setUsername(j.username))
       .catch(() => {});

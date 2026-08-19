@@ -1,3 +1,5 @@
+import { apiUrl } from "../api";
+
 const TOKEN_KEY = "rw09_admin_token";
 
 export function getToken() {
@@ -18,7 +20,7 @@ export function authHeaders() {
 }
 
 export async function apiLogin(username, password) {
-  const res = await fetch("/api/admin/login", {
+  const res = await fetch(apiUrl("/api/admin/login"), {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ username, password })
@@ -30,13 +32,13 @@ export async function apiLogin(username, password) {
 }
 
 export async function fetchContent(key) {
-  const res = await fetch(`/api/${key}`);
+  const res = await fetch(apiUrl(`/api/${key}`));
   if (!res.ok) throw new Error("Gagal memuat konten");
   return res.json();
 }
 
 export async function saveContent(key, data) {
-  const res = await fetch(`/api/admin/content/${key}`, {
+  const res = await fetch(apiUrl(`/api/admin/content/${key}`), {
     method: "PUT",
     headers: { "Content-Type": "application/json", ...authHeaders() },
     body: JSON.stringify({ data })
@@ -49,7 +51,7 @@ export async function saveContent(key, data) {
 export async function uploadImage(file) {
   const fd = new FormData();
   fd.append("image", file);
-  const res = await fetch("/api/admin/upload", {
+  const res = await fetch(apiUrl("/api/admin/upload"), {
     method: "POST",
     headers: authHeaders(),
     body: fd
