@@ -27,18 +27,16 @@ export default function Hero({ site }) {
         <div className="text-center lg:text-left">
           <span className="badge !bg-white/10 !text-ocean-100 !ring-white/20 animate-fade-up">
             <Icon name="pin" className="h-4 w-4" />
-            {site.subtitle || "Kelurahan Tanjung Mas, Semarang Utara"}
+            {site.subtitle}
           </span>
           <h1 className="mt-6 text-4xl font-extrabold leading-tight tracking-tight text-white sm:text-5xl lg:text-6xl animate-fade-up">
             Selamat Datang di{" "}
             <span className="bg-gradient-to-r from-cyan-300 to-sky-200 bg-clip-text text-transparent">
-              {site.name || "RW 09 Tanjung Mas"}
+              {site.name}
             </span>
           </h1>
           <p className="mx-auto mt-6 max-w-xl text-base leading-relaxed text-ocean-100 sm:text-lg lg:mx-0 animate-fade-up">
-            {site.tagline}. Semangat gotong royong warga pesisir yang terus
-            berbenah, mulai dari kesehatan, lingkungan, ekonomi, hingga
-            ketahanan pangan.
+            {site.tagline}
           </p>
           <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row lg:justify-start animate-fade-up">
             <a href="#tentang" className="btn-primary w-full sm:w-auto">
@@ -55,15 +53,15 @@ export default function Hero({ site }) {
           <div className="animate-float">
             <div className="relative overflow-hidden rounded-3xl border-4 border-white/20 shadow-2xl">
               <img
-                src={mediaUrl(site.hero?.image) || "https://images.unsplash.com/photo-1498028658436-4b07a4d1fba4?auto=format&fit=crop&w=900&q=80"}
-                alt={site.hero?.caption || "Suasana pesisir Tanjung Mas"}
+                src={mediaUrl(site.hero?.image)}
+                alt={site.hero?.caption || ""}
                 className="h-72 w-full object-cover sm:h-96"
                 loading="eager"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-ocean-950/60 to-transparent" />
               <div className="absolute bottom-4 left-4 right-4">
                 <p className="text-sm font-semibold text-white">
-                  {site.hero?.caption || "Kehidupan masyarakat pesisir Tanjung Mas"}
+                  {site.hero?.caption}
                 </p>
               </div>
             </div>

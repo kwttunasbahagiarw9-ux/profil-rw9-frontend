@@ -45,14 +45,14 @@ export default function Navbar({ site }) {
                   scrolled ? "text-slate-900" : "text-white"
                 }`}
               >
-                {site?.name || "RW 09 Tanjung Mas"}
+                {site?.name}
               </span>
               <span
                 className={`block text-[11px] font-medium ${
                   scrolled ? "text-slate-500" : "text-ocean-100"
                 }`}
               >
-                {site?.subtitle?.replace("Kelurahan ", "") || "Semarang Utara"}
+                {site?.subtitle?.replace("Kelurahan ", "")}
               </span>
             </span>
           </a>

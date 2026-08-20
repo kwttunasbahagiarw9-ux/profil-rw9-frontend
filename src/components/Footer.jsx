@@ -2,13 +2,7 @@ import Icon from "./Icon";
 
 export default function Footer({ site }) {
   const year = new Date().getFullYear();
-  const contact = site.footer || site.contact || {};
-  const footer = {
-    address: contact.address || "RW 09, Kelurahan Tanjung Mas, Kecamatan Semarang Utara, Kota Semarang, Jawa Tengah 50144",
-    phone: contact.phone || "(024) 3560341",
-    whatsappLabel: contact.whatsappLabel || "WA: 0852-4117-8085",
-    email: contact.email || "kelurahantanjungmas@gmail.com"
-  };
+  const footer = site.footer || site.contact || {};
 
   return (
     <footer className="bg-ocean-950 text-ocean-100">

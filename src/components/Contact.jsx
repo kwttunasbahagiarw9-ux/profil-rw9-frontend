@@ -31,30 +31,23 @@ export default function Contact({ site }) {
     }
   };
 
-  const contact = {
-    address:
-      "RW 09, Kelurahan Tanjung Mas, Kecamatan Semarang Utara, Kota Semarang, Jawa Tengah 50144",
-    phone: "(024) 3560341",
-    whatsappLabel: "WA: 0852-4117-8085",
-    email: "kelurahantanjungmas@gmail.com",
-    ...(site.contact || {})
-  };
+  const contact = site.contact || {};
 
   const contactCards = [
     {
       icon: "pin",
       title: "Alamat",
-      lines: [contact.address]
+      lines: [contact.address].filter(Boolean)
     },
     {
       icon: "whatsapp",
       title: "WhatsApp",
-      lines: [contact.whatsappLabel, contact.phone]
+      lines: [contact.whatsappLabel, contact.phone].filter(Boolean)
     },
     {
       icon: "mail",
       title: "Email",
-      lines: [contact.email]
+      lines: [contact.email].filter(Boolean)
     },
     ];
 
@@ -104,14 +97,7 @@ export default function Contact({ site }) {
               <div>
                 <h3 className="font-extrabold text-slate-900">Media Sosial</h3>
                 <div className="mt-2 flex gap-2">
-                  {(site.socials?.length
-                    ? site.socials
-                    : [
-                        { name: "facebook", label: "Facebook", url: "#kontak" },
-                        { name: "instagram", label: "Instagram", url: "#kontak" },
-                        { name: "youtube", label: "YouTube", url: "#kontak" }
-                      ]
-                  ).map((social) => (
+                  {(site.socials || []).map((social) => (
                     <a
                       key={social.name}
                       href={social.url || "#kontak"}
